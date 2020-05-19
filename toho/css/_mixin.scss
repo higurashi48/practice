@@ -1,0 +1,166 @@
+// カラー関係
+$main-c: #0095ca;
+$sub-c: #e8f9ff;
+$accent-c: #ff6c00;
+$color_st: #a4ea81;
+@mixin linear-gradient($way: to bottom, $color_st: #a4ea81, $color_ed: #6bb248) {
+  background: linear-gradient($way, $color_st 0%, $color_ed 100%);
+}
+
+// フォント関係
+@mixin font-family($color: #{$main-c}) {
+  font: {
+    family: din-condensed, sans-serif;
+    weight: 400;
+    style: normal;
+  }
+  color: $color;
+}
+@mixin paragraph {
+  margin: 40px 0;
+  font-size: 1.5rem;
+  line-height: 2;
+}
+// ブレイクポイント
+@mixin media {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+// レイアウト関係
+%layout {
+  margin: 80px auto;
+  max-width: 1000px;
+  width: 100%;
+}
+@mixin layout-sp {
+  margin: 0;
+  padding: 30px 20px;
+}
+
+// タイトル
+// 下線付きタイトル
+@mixin style-ttl($fs: 24px, $bg_c: #000) {
+  position: relative;
+  padding-bottom: 14px;
+  text-align: center;
+  font-size: $fs;
+  font-weight: bold;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background-color: $bg_c;
+  }
+}
+%ttl {
+  font-size: 2.4rem;
+  line-height: calc(46 / 32);
+  text-align: center;
+}
+
+// 電話番号
+@mixin number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: $main-c;
+  @include font-family(#fff);
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+// ボタン
+@mixin btn-stl {
+  display: inline-block;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 0 #488b39;
+  padding: 15px 5% 15px 0;
+  @include linear-gradient;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0,0,0,.2);
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    border-top: 4px solid #fff;
+    box-shadow: 2px -2px 2px rgba(0,0,0,.2);
+    border-right: 4px solid #fff;
+  }
+  span {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 1.1em;
+    color: #488b39;
+  }
+}
+@mixin btn($width:750px, $fs:3rem) {
+  @include btn-stl;
+  width: $width;
+  font-size: $fs;
+  &::after {
+    content: '';
+    transform: rotate(45deg) translateY(-50%);
+    width: calc(#{$fs} / 1.7);
+    height: calc(#{$fs} / 1.7);
+  }
+  span {
+    padding: 22px 0;
+    width: 90px;
+    height: 90px;
+  }
+}
+@mixin btn-s($width:540px, $fs:2.4rem) {
+  @include btn-stl;
+  width: $width;
+  font-size: $fs;
+  &::after {
+    content: '';
+    transform: rotate(45deg) translateY(-70%);
+    width: calc(#{$fs} / 1.7);
+    height: calc(#{$fs} / 1.7);
+  }
+  span {
+    padding: 20px 0;
+    width: 80px;
+    height: 80px;
+  }
+}
+@mixin btn-sp($width:100%, $fs:1.6rem) {
+  @include btn-stl;
+  width: $width;
+  box-shadow: 0 4px 0 #488b39;
+  padding: 8px 15px 8px 0;
+  font-size: $fs;
+  &::after {
+    content: '';
+    right: 16px;
+    transform: rotate(45deg) translateY(-50%);
+    width: calc(#{$fs} / 1.7);
+    height: calc(#{$fs} / 1.7);
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+  }
+  span {
+    padding: 6px 0;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+  }
+}

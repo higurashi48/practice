@@ -1,0 +1,109 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,Meiryo,MS PGothic,sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #337ab7;
+  cursor: pointer;
+}
+* > a > img:hover {
+  opacity: .7;
+}
+/*   全体　　*/
+.pc {
+  display: none;
+}
+@media screen and (min-width: 780px) {
+  .pc {
+    display: block;
+  }
+  .sp {
+    display: none;
+  }
+}
+.main {
+  width: 100%;
+  overflow-x: auto;
+}
+/* 汎用クラス */
+.font-xl {
+  font-size: 2em;
+}
+.font-l {
+  font-size: 1.4em;
+}
+.font-s {
+  font-size: .5em;
+}
+.strong {
+  color: #ff8c00;
+}
+/* ヘッダー */
+.header {
+  width: 100%;
+}
+.header__wrapper {
+  letter-spacing: -.4em;
+  padding: 20px;
+}
+.header__wrapper > * {
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: middle;
+}
+.header__logo {
+  width: auto;
+  min-width: 135px;
+}
+.header__logo img {
+  width: 180px;
+}
+.header__txt {
+  width: auto;
+  max-width: 50%;
+  font-size: 1.4rem;
+  margin: 0 10px;
+}
+.header__tel {
+  width: auto;
+  position: absolute;
+  right: 20px;
+  font-size: 2.4rem;
+  white-space: nowrap;
+}
+@media screen and (max-width: 640px) {
+  .header__wrapper {
+    padding: 32px 20px 10px;
+    position: relative;
+  }
+  .header__txt {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    min-width: 100%;
+    margin: 0;
+    font-size: .5em;
+  }
+  .header__logo {
+    margin-top: 6px;
+  }
+  .header__logo img {
+    max-width: 150px;
+  }
+  .header__tel.tel-number {
+    font-size: 2.6rem;
+  }
+}

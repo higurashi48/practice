@@ -1,0 +1,541 @@
+@charset "UTF-8";
+@import "mixin.scss";
+
+
+/* フォント */
+h1, h2, h3, h4, h5, p, a, span {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+}
+/* 汎用クラス */
+.tel-number {
+  @include font-family;
+  margin: 0;
+  font-size: 4rem;
+  span {
+    color: #000;
+    font-size: .5em;
+    font-weight: 300;
+  }
+}
+/* catch */
+.catch__wrapper {
+  display: flex;
+  @include media {
+    flex-direction: column;
+  }
+}
+.catch__content {
+  flex: 1;
+  background-color: #e8f9ff;
+  &__inner {
+    margin: 100px 30px 100px 50px;
+    line-height: 1.5;
+    font-size: 2rem;
+    font-weight: bold;
+    @include media {
+      margin: 30px 20px;
+      font-size: 1.6rem;
+    }
+    .catch__limited {
+      display: inline-block;
+      font: {
+        size: 3.4rem;
+      }
+      border: 3px solid #000;
+      background-color: #fff;
+      margin: 0;
+      padding: 5px;
+      @include media {
+        font-size: 2.8rem;
+      }
+    }
+    .catch__ttl {
+      position: relative;
+      img {
+        max-width: 100%;
+      }
+    }
+    .ribbon {
+      position: absolute;
+      bottom: 60px;
+      left: 390px;
+      img {
+        width: 100%;
+        min-width: 100px;
+      }
+      @include media {
+        bottom: 40px;
+        left: 70%;
+        img {
+          max-width: 185px;
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+.catch__img {
+  flex: 1;
+  max-height: 600px;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+  }
+  &__txt {
+    position: absolute;
+    top: 45%;
+    right: 0;
+    max-width: 380px;
+    padding: 10px 16px;
+    background-color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    .strong {
+      @include font-family(#{$accent-c});
+      .font-s {
+        font-weight: bold;
+      }
+    }
+  }
+}
+/* contact */
+.contact {
+  font-size: 1.6rem;
+  p {
+    margin: 0;
+  }
+  &__wrapper {
+    @extend %layout;
+    @include media {
+      @include layout-sp;
+    }
+  }
+  &__ttl {
+    margin-bottom: 50px;
+    @extend %ttl;
+    span {
+      color: $accent-c;
+    }
+    @include media {
+      font-size: 1.7rem;
+    }
+  }
+  .tel {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #f4f4f4;
+    font-size: 1.8rem;
+    text-align: center;
+    & > span {
+      font-size: .83em;
+    }
+    & > * {
+      margin-bottom: 20px;
+      &:last-child {
+        margin: 0;
+      }
+    }
+    .style-ttl {
+      @include style-ttl;
+    }
+  }
+}
+.contact__form {
+  width: 680px;
+  margin: 80px auto 0;
+  padding: 30px 50px 50px;
+  border: 3px solid #000;
+  box-shadow: 10px 10px 0 rgba(0,0,0,.13);
+  @include media {
+    width: 100%;
+    margin: 40px auto 0;
+    padding: 0 20px 25px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 rgba(0,0,0,.13);
+  }
+  &__ttl {
+    @include style-ttl;
+  }
+  label {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  input {
+    margin-bottom: 30px;
+    padding: 15px;
+    font-size: 1.5rem;
+    @include media {
+      border: 1px solid #a9a9a9;
+    }
+  }
+  select {
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+  textarea {
+    width: 100%;
+    margin-bottom: 30px;
+    @include media {
+      border: 1px solid #a9a9a9;
+    }
+  }
+  .btn {
+    @include btn-s;
+    margin: 0 20px;
+    @include media {
+      @include btn-sp;
+      margin: 0;
+    }
+  }
+}
+/* feature */
+.feature {
+  font-size: 1.6rem;
+  $feature: '&';
+  p {
+    margin: 0;
+  }
+  &__group {
+    padding: 80px 0;
+    background: url('../img/bg_tile.jpg') $sub-c;
+    &__inner {
+      @extend %layout;
+      margin: 0 auto;
+    }
+    .#{feature}__ttl {
+      @extend %ttl;
+      margin-bottom: 0;
+    }
+    .#{feature}__subttl {
+      @include font-family;
+      font-size: 2.4rem;
+      text-align: center;
+    }
+    @include media {
+      padding: 40px 0;
+      .#{feature}__subttl {
+        margin: 15px 0 25px;
+      }
+    }
+  }
+  .group__box {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    flex: 0 1 300px;
+    position: relative;
+    margin-top: 45px;
+    padding: 50px 30px 40px;
+    background-color: #fff;
+    font-size: 1.3rem;
+    text-align: center;
+    span {
+      @include number;
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .style-ttl {
+      @include style-ttl(2rem);
+    }
+    p {
+      margin: 20px 0;
+    }
+    @include media {
+      &__wrapper {
+        flex-direction: column;
+        padding: 0 20px;
+      }
+    }
+  }
+  .module {
+    $module: '&';
+    &:nth-child(2n) {
+      background: url('../img/bg_tile.jpg') $sub-c;
+      & .#{module}__inner {
+        flex-direction: row-reverse;
+        @include media {
+          flex-direction: column;
+        }
+      }
+    }
+    &__inner {
+      @extend %layout;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5rem;
+      line-height: 1.67;
+      padding: 60px 0;
+      margin: 0 auto;
+      @include media {
+        flex-direction: column;
+        padding: 40px 20px;
+      }
+      .#{module}__content {
+        flex: 0 1 460px;
+        span {
+          @include number;
+        }
+        &__ttl {
+          margin: 20px 0 25px;
+          font-size: 3.8rem;
+          line-height: 1.26;
+        }
+        &__subttl {
+          color: $main-c;
+          font-weight: bold;
+          font-size: 2.7rem;
+        }
+        @include media {
+          flex: 0 0 auto;
+          margin-bottom: 20px;
+          &__ttl {
+            margin: 15px 0;
+            font-size: 2.7rem;
+          }
+          &__subttl {
+            margin: 15px 0;
+            font-size: 1.9rem;
+          }
+        }
+      }
+      .#{module}__img {
+        flex: 0 1 460px;
+        @include media {
+          flex: 0 0 auto;
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    &.module--toho .#{module}__content {
+      span {
+        float: left;
+      }
+      img {
+        max-width: 150px;
+        margin-left: 35px;
+        padding-top: 10px;
+        :after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+      }
+    }
+  }
+}
+/* promise */
+.promise {
+  background: url('../img/promise_bg.jpg') 70% center / cover no-repeat;
+  &__wrapper {
+    @extend %layout;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 80px 0;
+    & p {
+      @include paragraph;
+    }
+    @include media {
+      @include layout-sp;
+    }
+  }
+  &__inner {
+    max-width: 600px;
+  }
+  &__ttl {
+    @extend %ttl;
+    text-align: left;
+    color: $main-c;
+  }
+  @include media {
+    background: url('../img/promise_bg_sp.jpg') bottom left / contain no-repeat;
+    min-height: 860px;
+  }
+}
+/* about */
+.about {
+  $about: '&';
+  &__inner {
+    background: url('../img/about_bg.jpg') top center / cover no-repeat;
+    padding: 80px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2;
+    .style-ttl {
+      @include style-ttl($bg_c: #{$main-c});
+    }
+    .#{about}__txt {
+      margin: 40px 0;
+    }
+    @include media {
+      background: url('../img/about_bg_sp.jpg') bottom center / contain no-repeat;
+      min-height: 1050px;
+      line-height: 1.67;
+      @include layout-sp;
+    }
+  }
+  &__img {
+    display: flex;
+    justify-content: center;
+    &__box {
+    flex: 0 1 auto;
+    display: flex;
+      img {
+        max-width: 100%;
+        align-items: flex-end;
+      }
+    }
+    @include media {
+      flex-wrap: wrap;
+      &__box {
+        flex: 1 1 150px;
+      }
+    }
+  }
+}
+/* gallery */
+.gallery {
+  text-align: center;
+  &__wrapper {
+    @extend %layout;
+    h2 img {
+      max-width: 50%;
+    }
+    p {
+      margin: 30px auto 40px;
+      font-size: 1.7rem;
+      line-height: (32px / 20px);
+    }
+    .btn {
+      @include btn(750px);
+    }
+    @include media {
+      @include layout-sp;
+      h2 img {
+        max-width: 100%;
+      }
+      .btn {
+        @include btn-sp;
+      }
+    }
+  }
+}
+.photo {
+  width: 100%;
+  max-width: 800px;
+  margin: 80px auto 0;
+  .main-photo {
+    ul {
+      padding: 0;
+      img {
+        width: 100%;
+        height: 530px;
+        object-fit: cover;
+      }
+    }
+  }
+  .thumb-photo {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      li {
+        flex: 1 1 150px;
+        padding: 6px;
+        list-style: none;
+        &:nth-child(5n+1) {
+          padding-left: 0;
+        }
+        &:nth-child(5n) {
+          padding-right: 0;
+        }
+        img {
+          width: 100%;
+          height: 90px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+/* pholosophy */
+.philosophy {
+  background: url('../img/philosophy_bg.jpg') center center / cover no-repeat;
+  &__wrapper {
+    @extend %layout;
+    text-align: center;
+    padding: 80px 0;
+    .style-ttl {
+      @include style-ttl($bg_c:#{$main-c});
+    }
+    p {
+      @include paragraph;
+    }
+    .btn {
+      @include btn-s(540px, 2.4rem);
+    }
+    @include media {
+      background: url('../img/philosophy_bg_sp.jpg') center bottom / contain no-repeat;
+      @include layout-sp;
+      min-height: 1100px;
+      .btn {
+        @include btn-sp;
+      }
+    }
+  }
+}
+/*  footer */
+.footer {
+  margin: 0;
+  padding: 35px 20px;
+  background-color: #4c4c4c;
+  color: #fff;
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+  p {
+    margin: 30px 0;
+  }
+}
+/* slick settings */
+.slick-prev:before, .slick-next:before {
+  color:#000;
+}
+/* pop up img for practice*/
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  img {
+    max-width: 100%;
+  }
+  &__bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,.3);
+  }
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    padding: 20px;
+  }
+}
